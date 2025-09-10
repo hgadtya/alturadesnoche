@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website Statis - Dark Theme dengan Teal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1F2937; /* Dark grey background */
+            color: #E5E7EB; /* Light grey text */
+            padding-top: 64px; /* space for fixed nav */
+        }
+        section {
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            background-color: #1F2937;
+        }
+        .card {
+            background-color: #374151; /* Slightly lighter grey for cards */
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .btn-teal {
+            background-color: #14B8A6; /* Teal button */
+            color: #FFFFFF;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        .btn-teal:hover {
+            background-color: #0D9488; /* Darker teal on hover */
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <center>
+        <img src="./logo.png" height="10%" width="10%" alt="alturadedesnoche" class="text-center items-center">
+    </center>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="text-center">
+        <h2 class="text-4xl font-bold text-teal-400">Altura De Desnoche.</h2>
+        <p class="mb-10">let's make some deal! Yessir Yessir</p>
+        <div class="cards-container">
+            <!-- Statistik 1 -->
+            <div class="card">
+                <img src="./vector-epep.png" alt="" />
+                <h3 class="text-xl font-semibold text-teal-400 mb-2">Vector FF ( Bebas Request )</h3>
+                <p class="text-gray-300 mb-4">Vector yang diambil dari set customer dan dijadikan style vector untuk diaplikasikan menjadi logo JB.</p>
+                <button class="btn-teal" type="button" onclick="window.location.href='https://wa.me/6282227759831?text=Halo,%20saya%20mau%20order%20logo%20vector%20ff.%20Bisa%20info%20%26%20harga%3F';">Order Sekarang</button>
+            </div>
+            <!-- Statistik 2 -->
+            <div class="card">
+                <img src="./chibi.png" alt=""/>
+                <h3 class="text-xl font-semibold text-teal-400 mb-2">Chibi ( Bebas Request )</h3>
+                <p class="text-gray-300 mb-4">Logo yang memanipulasi karakter menjadi chibi yang nantinya diimplementasikan menjadi logo JB atau branding toko anda.</p>
+                <button class="btn-teal" type="button"  onclick="window.location.href='https://wa.me/6282227759831?text=Halo,%20saya%20mau%20order%20logo%chibi.%20Bisa%20info%20%26%20harga%3F';" >Order Sekarang</button>
+            </div>
+            <!-- Statistik 3 -->
+            <div class="card">
+                <img src="./mascot.png" alt="" />
+                <h3 class="text-xl font-semibold text-teal-400 mb-2">Mascot ( Bebas Request )</h3>
+                <p class="text-gray-300 mb-4">Sebuah illustrasi untuk mendefinisikan sebuah karakter dengan philosophy yang sesuai untuk branding JB dan toko online.</p>
+                <button class="btn-teal" type="button" onclick="window.location.href='https://wa.me/6282227759831?text=Halo,%20saya%20mau%20order%20logo%mascot.%20Bisa%20info%20%26%20harga%3F';" >Order Sekarang</button>
+            </div>
+            <!-- Statistik 4 -->
+            <div class="card">
+                <img src="./vector-face.png" alt="" />
+                <h3 class="text-xl font-semibold text-teal-400 mb-2">Vector Muka ( Bebas Request )</h3>
+                <p class="text-gray-300 mb-4">Manipulasi grafik real picture menjadi vector dan diimplementasikan menjadi logo untuk branding JB dan toko online.</p>
+                <button class="btn-teal" type="button" onclick="window.location.href='https://wa.me/6282227759831?text=Halo,%20saya%20mau%20order%20logo%20vector%20muka.%20Bisa%20info%20%26%20harga%3F';" >Order Sekarang</button>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: teal; padding: 12px; text-align: center; color: #222; font-weight: 600;">
+        <p>Copyright 2025 || Altura De Desnoche.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll and active link highlight
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('nav a.nav-link');
+
+            // Function to set active link based on scroll position
+            function setActiveLink() {
+                let fromTop = window.scrollY + 70; // offset for fixed nav height + some padding
+
+                navLinks.forEach(link => {
+                    const section = document.querySelector(link.hash);
+                    if (
+                        section &&
+                        section.offsetTop <= fromTop &&
+                        section.offsetTop + section.offsetHeight > fromTop
+                    ) {
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        navLinks.forEach(l => l.classList.remove('clicked'));
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Handle click to add 'clicked' class and remove from others
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Scroll smoothly
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    // Remove clicked class from all links
+                    navLinks.forEach(l => l.classList.remove('clicked'));
+                    // Add clicked class to clicked link
+                    this.classList.add('clicked');
+                    // Also update active class to keep consistent
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            window.addEventListener('scroll', setActiveLink);
+            setActiveLink(); // initialize on load
+        });
+    </script>
+
+</body>
+</html>
